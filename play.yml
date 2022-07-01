@@ -1,0 +1,13 @@
+---
+
+- name: Deploy to K8s
+  hosts: localhost
+  become: true
+
+  tasks:
+  - name: Deploy pod Service
+    shell: |
+      kubectl delete pod mywebsite-pod
+      kubectl delete svc mywebsite-svc
+      kubectl apply -f pod.yml
+      kubectl apply -f ser.yml
